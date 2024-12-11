@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class UnidadController extends Controller
 {
+    public function ValidarForm(Request $request)
+    {
+        $request->validate([
+            'descripcion' => 'required|string|min:3|max:255',
+        ]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -29,8 +35,13 @@ class UnidadController extends Controller
      */
     public function store(Request $request)
     {
-        Unidad::create($request->all());
-        return redirect()->route('unidades.index');
+        $this->ValidarForm($request);
+        try {
+            Unidad::create($request->all());
+            return redirect()->route('unidades.index')->with('success', 'Unidad creada correctamente');
+        } catch (\Exception $e) {
+            return redirect()->route('unidades.index')->with('error', 'Error al crear la unidad: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -56,9 +67,14 @@ class UnidadController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $unidad = Unidad::find($id);
-        $unidad->update($request->all());
-        return redirect()->route('unidades.index');
+        $this->ValidarForm($request);
+        try {
+            $unidad = Unidad::findOrFail($id);
+            $unidad->update($request->all());
+            return redirect()->route('unidades.index')->with('success', 'Unidad actualizada correctamente');
+        } catch (\Exception $e) {
+            return redirect()->route('unidades.index')->with('error', 'Error al actualizar la unidad: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -66,8 +82,12 @@ class UnidadController extends Controller
      */
     public function destroy(string $id)
     {
-        $unidad = Unidad::find($id);
-        $unidad->delete();
-        return redirect()->route('unidades.index');
+        try {
+            $unidad = Unidad::findOrFail($id);
+            $unidad->delete();
+            return redirect()->route('unidades.index')->with('success', 'Unidad eliminada correctamente');
+        } catch (\Exception $e) {
+            return redirect()->route('unidades.index')->with('error', 'Error al eliminar la unidad: ' . $e->getMessage());
+        }
     }
 }
