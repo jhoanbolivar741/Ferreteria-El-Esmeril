@@ -1,7 +1,7 @@
 <x-app-layout>
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Articulos') }}
+            {{ __('Clientes') }}
         </h2>
     </x-slot>
     <div class="p-8">
@@ -24,46 +24,34 @@
                             ID
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Descripción
+                            Razon Social
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Cantidad
+                            NIT
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Precio Unitario
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Unidad Id
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            <a href="{{route('articulos.create')}}"
+                            <a href="{{route('clientes.create')}}"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Nuevo</a>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($articulos as $articulo)
+                    @foreach ($clientes as $cliente)
                         <tr
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{$articulo->id}}
+                                {{$cliente->id}}
                             </th>
                             <td class="px-6 py-4">
-                                {{$articulo->descripcion}}
+                                {{$cliente->razon}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$articulo->cantidad}}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{$articulo->precio_unitario}}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{$articulo->unidad_id}}
+                                {{$cliente->nit}}
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{route('articulos.edit', $articulo)}}"
+                                <a href="{{route('clientes.edit', $cliente)}}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
-                                <for action="{{route('articulos.destroy', $articulo)}}" method="POST">
+                                <for action="{{route('clientes.destroy', $cliente)}}" method="POST">
                                     @method('DELETE')
                                     <button class="font-medium text-blue-600 dark:text-red-500 hover:underline">Eliminar</>
                                         @csrf
@@ -74,6 +62,5 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 </x-app-layout>
