@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Unidad;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class UnidadController extends Controller
+class UnidadController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('can:unidades.index', only: ['index','show']),
+            new Middleware('can:unidades.create', only: ['create','store']),
+            new Middleware('can:unidades.edit', only: ['edit','update']),
+            new Middleware('can:unidades.delete', only: ['destroy']),
+        ];
+    }
     public function ValidarForm(Request $request)
     {
         $request->validate([
@@ -16,9 +27,17 @@ class UnidadController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $unidades = Unidad::all();
+        $query = Unidad::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('descripcion', 'like', '%' . $search . '%');
+        }
+
+        $unidades = $query->paginate(10);
+
         return view('unidades.index', compact('unidades'));
     }
 
