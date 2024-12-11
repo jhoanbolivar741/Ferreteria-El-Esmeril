@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Metodo_de_Pago;
+use App\Models\MetodoDePago;
 
 class MetodoDePagoSeeder extends Seeder
 {
@@ -13,34 +13,34 @@ class MetodoDePagoSeeder extends Seeder
      */
     public function run(): void
     {
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Efectivo',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Tarjeta de Débito',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Tarjeta de Crédito',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Transferencia Bancaria',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'QR',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Depósito Bancario',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Pago en Línea',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Tarjeta de Débito',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'Tarjeta de Crédito',
         ]);
-        Metodo_de_Pago::create([
+        MetodoDePago::create([
             'descripcion' => 'QR',
         ]);
 
