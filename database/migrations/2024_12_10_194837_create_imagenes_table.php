@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('imagenes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',50);
-            $table->foreignId('articulo_id')->constrained('articulos');
+            $table->foreignId('articulo_id')->references('id')->on('articulos');
             $table->timestamps();
         });
     }

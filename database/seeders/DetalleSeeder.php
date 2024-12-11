@@ -15,63 +15,53 @@ class DetalleSeeder extends Seeder
     {
         Detalle::create([
             'cantidad' => 10,
-            'precio_unitario' => 100,
+            'venta_id' => 1,
             'articulo_id' => 1,
-            'factura_id' => 1,
         ]);
         Detalle::create([
             'cantidad' => 20,
-            'precio_unitario' => 200,
+            'venta_id' => 2,
             'articulo_id' => 2,
-            'factura_id' => 2,
         ]);
         Detalle::create([
             'cantidad' => 30,
-            'precio_unitario' => 300,
+            'venta_id' => 3,
             'articulo_id' => 3,
-            'factura_id' => 3,
         ]);
         Detalle::create([
             'cantidad' => 40,
-            'precio_unitario' => 400,
+            'venta_id' => 4,
             'articulo_id' => 4,
-            'factura_id' => 4,
         ]);
         Detalle::create([
             'cantidad' => 50,
-            'precio_unitario' => 500,
+            'venta_id' => 5,
             'articulo_id' => 5,
-            'factura_id' => 5,
         ]);
         Detalle::create([
             'cantidad' => 60,
-            'precio_unitario' => 600,
+            'venta_id' => 6,
             'articulo_id' => 6,
-            'factura_id' => 6,
         ]);
         Detalle::create([
             'cantidad' => 70,
-            'precio_unitario' => 700,
+            'venta_id' => 7,
             'articulo_id' => 7,
-            'factura_id' => 7,
         ]);
         Detalle::create([
             'cantidad' => 80,
-            'precio_unitario' => 800,
+            'venta_id' => 8,
             'articulo_id' => 8,
-            'factura_id' => 8,
         ]);
         Detalle::create([
             'cantidad' => 90,
-            'precio_unitario' => 900,
+            'venta_id' => 9,
             'articulo_id' => 9,
-            'factura_id' => 9,
         ]);
         Detalle::create([
             'cantidad' => 100,
-            'precio_unitario' => 1000,
+            'venta_id' => 10,
             'articulo_id' => 10,
-            'factura_id' => 10,
         ]);
     }
 }

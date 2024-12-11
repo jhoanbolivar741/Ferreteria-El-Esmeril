@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('detalles', function (Blueprint $table) {
             $table->id();
             $table->integer('cantidad');
-            $table->foreignId('ventas_id')->constrained('ventas');
-            $table->foreignId('articulo_id')->constrained('articulos');
+            $table->foreignId('venta_id')->references('id')->on('ventas');
+            $table->foreignId('articulo_id')->references('id')->on('articulos');
             $table->timestamps();
         });
     }

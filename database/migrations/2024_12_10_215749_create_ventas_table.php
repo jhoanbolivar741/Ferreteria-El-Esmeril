@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
-            $table->foreignId('clientes_id')->constrained('clientes');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('cliente_id')->references('id')->on('clientes');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

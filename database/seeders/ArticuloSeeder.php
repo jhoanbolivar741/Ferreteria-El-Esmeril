@@ -35,7 +35,6 @@ class ArticuloSeeder extends Seeder
             'descripcion' => 'excavadora',
             'cantidad' => 40,
             'precio_unitario' => 400,
-            'foto' => 'foto4.jpg',
             'unidad_id' => 4,
         ]);
         Articulo::create([
@@ -66,7 +65,6 @@ class ArticuloSeeder extends Seeder
             'descripcion' => 'Estacas',
             'cantidad' => 90,
             'precio_unitario' => 900,
-            'foto' => 'foto9.jpg',
             'unidad_id' => 9,
         ]);
         Articulo::create([

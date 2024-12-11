@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('descripcion',100);
             $table->integer('cantidad');
             $table->decimal('precio_unitario',10,2);
-            $table->foreignId('unidad_id')->constrained('unidades');
+            $table->foreignId('unidad_id')->references('id')->on('unidades');
             $table->timestamps();
         });
     }
