@@ -18,34 +18,32 @@ class RolesAndPermissionSeeder extends Seeder
         $adminRole = Role::create(['name' => 'admin']);
         $vendedorRole = Role::create(['name' => 'vendedor']);
 
-        $permissions = Permission::insert([
-            ['name' => 'unidades.index'],
-            ['name' => 'unidades.create'],
-            ['name' => 'unidades.edit'],
-            ['name' => 'unidades.delete'],
-            ['name' => 'articulos.index'],
-            ['name' => 'articulos.create'],
-            ['name' => 'articulos.edit'],
-            ['name' => 'articulos.delete'],
-            ['name' => 'clientes.index'],
-            ['name' => 'clientes.create'],
-            ['name' => 'clientes.edit'],
-            ['name' => 'clientes.delete'],
-            ['name' => 'ventas.index'],
-            ['name' => 'ventas.create'],
-            ['name' => 'ventas.edit'],
-            ['name' => 'ventas.delete'],
-            ['name' => 'detalles.index'],
-            ['name' => 'detalles.create'],
-            ['name' => 'detalles.edit'],
-            ['name' => 'detalles.delete'],
-            ['name' => 'users.index'],
-            ['name' => 'users.create'],
-            ['name' => 'users.edit'],
-            ['name' => 'users.delete']
-        ]);
+        Permission::create(['name' => 'unidades.index']);
+        Permission::create(['name' => 'unidades.create']);
+        Permission::create(['name' => 'unidades.edit']);
+        Permission::create(['name' => 'unidades.delete']);
+        Permission::create(['name' => 'articulos.index']);
+        Permission::create(['name' => 'articulos.create']);
+        Permission::create(['name' => 'articulos.edit']);
+        Permission::create(['name' => 'articulos.delete']);
+        Permission::create(['name' => 'clientes.index']);
+        Permission::create(['name' => 'clientes.create']);
+        Permission::create(['name' => 'clientes.edit']);
+        Permission::create(['name' => 'clientes.delete']);
+        Permission::create(['name' => 'ventas.index']);
+        Permission::create(['name' => 'ventas.create']);
+        Permission::create(['name' => 'ventas.edit']);
+        Permission::create(['name' => 'ventas.delete']);
+        Permission::create(['name' => 'detalles.index']);
+        Permission::create(['name' => 'detalles.create']);
+        Permission::create(['name' => 'detalles.edit']);
+        Permission::create(['name' => 'detalles.delete']);
+        Permission::create(['name' => 'users.index']);
+        Permission::create(['name' => 'users.create']);
+        Permission::create(['name' => 'users.edit']);
+        Permission::create(['name' => 'users.delete']);
 
-        $adminRole->syncPermissions($permissions);
+        $adminRole->syncPermissions(Permission::all());
         $vendedorRole->syncPermissions([
             'unidades.index',
             'articulos.index',
