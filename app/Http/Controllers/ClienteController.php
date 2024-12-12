@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class ClienteController extends Controller
+class ClienteController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('can:clientes.index', only: ['index','show']),
+            new Middleware('can:clientes.create', only: ['create','store']),
+            new Middleware('can:clientes.edit', only: ['edit','update']),
+            new Middleware('can:clientes.delete', only: ['destroy']),
+        ];
+    }
     public function ValidarForm(Request $request)
     {
         $request->validate([
@@ -17,9 +28,18 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        $query = Cliente::query();
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where('razon', 'like', '%' . $search . '%')
+                  ->orWhere('nit', 'like', '%' . $search . '%');
+        }
+
+        $clientes = $query->paginate(5);
+
         return view('clientes.index', compact('clientes'));
     }
 

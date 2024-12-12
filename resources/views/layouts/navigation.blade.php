@@ -15,6 +15,31 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @can('unidades.index')
+                        <x-nav-link :href="route('unidades.index')" :active="request()->routeIs('unidades.index')">
+                            {{ __('Unidades') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('articulos.index')
+                        <x-nav-link :href="route('articulos.index')" :active="request()->routeIs('articulos.index')">
+                            {{ __('Articulos') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('clientes.index')
+                        <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                            {{ __('Clientes') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('ventas.index')
+                        <x-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
+                            {{ __('Ventas') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('detalles.index')
+                        <x-nav-link :href="route('detalles.index')" :active="request()->routeIs('detalles.index')">
+                            {{ __('Detalles') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -70,6 +95,31 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @can('unidades.index')
+                <x-responsive-nav-link :href="route('unidades.index')" :active="request()->routeIs('unidades.index')">
+                    {{ __('Unidades') }}
+                </x-responsive-nav-link>
+            @endcan
+            @can('articulos.index')
+                <x-responsive-nav-link :href="route('articulos.index')" :active="request()->routeIs('articulos.index')">
+                    {{ __('Articulos') }}
+                </x-responsive-nav-link>
+            @endcan
+            @can('clientes.index')
+                <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                    {{ __('Clientes') }}
+                </x-responsive-nav-link>
+            @endcan
+            @can('ventas.index')
+                <x-responsive-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
+                    {{ __('Ventas') }}
+                </x-responsive-nav-link>
+            @endcan
+            @can('detalles.index')
+                <x-responsive-nav-link :href="route('detalles.index')" :active="request()->routeIs('detalles.index')">
+                    {{ __('Detalles') }}
+                </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

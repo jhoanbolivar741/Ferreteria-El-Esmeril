@@ -6,12 +6,24 @@ use App\Models\Cliente;
 use App\Models\User;
 use App\Models\Venta;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class VentaController extends Controller
+class VentaController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('can:ventas.index', only: ['index','show']),
+            new Middleware('can:ventas.create', only: ['create','store']),
+            new Middleware('can:ventas.edit', only: ['edit','update']),
+            new Middleware('can:ventas.delete', only: ['destroy']),
+        ];
+    }
     public function ValidarForm(Request $request)
     {
         $request->validate([
+            'fecha' => 'required|date',
             'cliente_id' => 'required|exists:clientes,id',
             'user_id' => 'required|exists:users,id',
         ]);
@@ -19,9 +31,28 @@ class VentaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $ventas = Venta::all();
+        $query = Venta::query();
+
+        if ($request->filled('fecha')) {
+            $query->whereDate('fecha', $request->input('fecha'));
+        }
+
+        if ($request->filled('cliente')) {
+            $query->whereHas('cliente', function ($q) use ($request) {
+                $q->where('nombre', 'like', '%' . $request->input('cliente') . '%');
+            });
+        }
+
+        if ($request->filled('usuario')) {
+            $query->whereHas('user', function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->input('usuario') . '%');
+            });
+        }
+
+        $ventas = $query->paginate(10);
+
         return view('ventas.index', compact('ventas'));
     }
 

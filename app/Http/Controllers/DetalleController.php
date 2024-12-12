@@ -6,9 +6,20 @@ use App\Models\Articulo;
 use App\Models\Detalle;
 use App\Models\Venta;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class DetalleController extends Controller
+class DetalleController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('can:detalles.index', only: ['index','show']),
+            new Middleware('can:detalles.create', only: ['create','store']),
+            new Middleware('can:detalles.edit', only: ['edit','update']),
+            new Middleware('can:detalles.delete', only: ['destroy']),
+        ];
+    }
     public function ValidarForm(Request $request)
     {
         $request->validate([
