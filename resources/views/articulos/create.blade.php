@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center justify-center mt-10">
         <div
             class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <form class="space-y-6" action="{{route('articulos.store')}}" method="POST">
+            <form class="space-y-6" action="{{route('articulos.store')}}" method="POST" enctype="multipart/form-data">
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Crear Articulo</h5>
                 @csrf
                 @if ($errors->any())
@@ -49,11 +49,18 @@
                 <div>
                     <label for="unidad_id"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Unidad</label>
-                    <select name="unidad_id" id="unidad_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    <select name="unidad_id" id="unidad_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                         @foreach ($unidades as $unidad)
                             <option value="{{$unidad->id}}">{{$unidad->descripcion}}</option>
                         @endforeach
                     </select>
+                </div>
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="foto">Foto</label>
+                    <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        name="foto" id="foto" type="file">
                 </div>
                 <div class="flex items-start gap-4">
                     <a href="{{route('articulos.index')}}"
