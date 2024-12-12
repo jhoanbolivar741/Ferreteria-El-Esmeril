@@ -11,6 +11,6 @@ class Cliente extends Model
 
     public function relVenta()
     {
-        return $this->hasMany(Venta::class);
+        return $this->hasMany(Venta::class, 'cliente_id');
     }
 }

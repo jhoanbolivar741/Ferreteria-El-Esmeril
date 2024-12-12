@@ -11,7 +11,7 @@ class Venta extends Model
 
     public function relCliente()
     {
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
     public function relDetalle()
@@ -21,6 +21,6 @@ class Venta extends Model
 
     public function relUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

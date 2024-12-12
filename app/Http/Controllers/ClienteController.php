@@ -28,9 +28,18 @@ class ClienteController extends Controller implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        $query = Cliente::query();
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where('razon', 'like', '%' . $search . '%')
+                  ->orWhere('nit', 'like', '%' . $search . '%');
+        }
+
+        $clientes = $query->paginate(5);
+
         return view('clientes.index', compact('clientes'));
     }
 
