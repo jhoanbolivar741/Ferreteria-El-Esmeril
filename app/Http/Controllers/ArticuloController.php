@@ -36,23 +36,19 @@ class ArticuloController extends Controller implements HasMiddleware
     {
         $query = Articulo::query();
 
-        if ($request->filled('descripcion')) {
-            $query->where('descripcion', 'like', '%' . $request->input('descripcion') . '%');
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function($q) use ($search) {
+                $q->where('descripcion', 'like', '%' . $search . '%')
+                  ->orWhere('cantidad', 'like', '%' . $search . '%')
+                  ->orWhere('precio_unitario', 'like', '%' . $search . '%')
+                  ->orWhereHas('relUnidad', function($q) use ($search) {
+                      $q->where('descripcion', 'like', '%' . $search . '%');
+                  });
+            });
         }
 
-        if ($request->filled('cantidad')) {
-            $query->where('cantidad', $request->input('cantidad'));
-        }
-
-        if ($request->filled('precio_unitario')) {
-            $query->where('precio_unitario', $request->input('precio_unitario'));
-        }
-
-        if ($request->filled('unidad_id')) {
-            $query->where('unidad_id', $request->input('unidad_id'));
-        }
-
-        $articulos = $query->paginate(10);
+        $articulos = $query->paginate(5);
 
         return view('articulos.index', compact('articulos'));
     }

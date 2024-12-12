@@ -36,7 +36,7 @@ class UnidadController extends Controller implements HasMiddleware
             $query->where('descripcion', 'like', '%' . $search . '%');
         }
 
-        $unidades = $query->paginate(10);
+        $unidades = $query->paginate(5);
 
         return view('unidades.index', compact('unidades'));
     }
