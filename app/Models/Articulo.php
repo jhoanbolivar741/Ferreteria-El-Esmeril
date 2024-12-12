@@ -11,10 +11,10 @@ class Articulo extends Model
 
     public function relUnidad()
     {
-        return $this->belongsTo(Unidad::class);
+        return $this->belongsTo(Unidad::class, 'unidad_id');
     }
     public function relDetalle()
     {
-        return $this->hasMany(Detalle::class);
+        return $this->hasMany(Detalle::class, 'articulo_id');
     }
 }
