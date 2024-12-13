@@ -11,11 +11,11 @@ class Detalle extends Model
 
     public function relVenta()
     {
-        return $this->belongsTo(Venta::class);
+        return $this->belongsTo(Venta::class, 'venta_id');
     }
 
     public function relArticulo()
     {
-        return $this->belongsTo(Articulo::class);
+        return $this->belongsTo(Articulo::class, 'articulo_id');
     }
 }

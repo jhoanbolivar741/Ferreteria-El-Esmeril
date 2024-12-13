@@ -16,7 +16,7 @@ class Venta extends Model
 
     public function relDetalle()
     {
-        return $this->hasMany(Detalle::class);
+        return $this->hasMany(Detalle::class, 'venta_id');
     }
 
     public function relUser()

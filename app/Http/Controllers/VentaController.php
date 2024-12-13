@@ -25,7 +25,6 @@ class VentaController extends Controller implements HasMiddleware
         $request->validate([
             'fecha' => 'required|date',
             'cliente_id' => 'required|exists:clientes,id',
-            'user_id' => 'required|exists:users,id',
         ]);
     }
     /**
@@ -35,23 +34,20 @@ class VentaController extends Controller implements HasMiddleware
     {
         $query = Venta::query();
 
-        if ($request->filled('fecha')) {
-            $query->whereDate('fecha', $request->input('fecha'));
-        }
-
-        if ($request->filled('cliente')) {
-            $query->whereHas('cliente', function ($q) use ($request) {
-                $q->where('nombre', 'like', '%' . $request->input('cliente') . '%');
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->whereHas('relCliente', function ($q) use ($search) {
+                $q->where('razon', 'like', '%' . $search . '%');
+            })->orWhereHas('relUser', function ($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%');
             });
         }
 
-        if ($request->filled('usuario')) {
-            $query->whereHas('user', function ($q) use ($request) {
-                $q->where('name', 'like', '%' . $request->input('usuario') . '%');
-            });
+        if ($request->filled('fecha_inicio') && $request->filled('fecha_fin')) {
+            $query->whereBetween('fecha', [$request->input('fecha_inicio'), $request->input('fecha_fin')]);
         }
 
-        $ventas = $query->paginate(10);
+        $ventas = $query->paginate(5);
 
         return view('ventas.index', compact('ventas'));
     }
@@ -73,10 +69,15 @@ class VentaController extends Controller implements HasMiddleware
     {
         $this->ValidarForm($request);
         try {
-            Venta::create($request->all());
-            return redirect()->route('ventas.index')->with('success', 'Venta creada correctamente');
+            //$venta = Venta::create($request->all());
+            $venta = Venta::create([
+                'fecha' => $request->input('fecha'),
+                'cliente_id' => $request->input('cliente_id'),
+                'user_id' => auth()->user()->id,
+            ]);
+            return redirect()->route('detalles.index', $venta->id)->with('success', 'Venta creada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('ventas.index')->with('error', 'Error al crear la venta: ' . $e->getMessage());
+            return redirect()->route('ventas.index')->with('error', 'Error al crear la venta');
         }
     }
 
@@ -108,10 +109,14 @@ class VentaController extends Controller implements HasMiddleware
         $this->ValidarForm($request);
         try {
             $venta = Venta::findOrFail($id);
-            $venta->update($request->all());
+            $venta->update([
+                'fecha' => $request->input('fecha'),
+                'cliente_id' => $request->input('cliente_id'),
+                'user_id' => auth()->user()->id,
+            ]);
             return redirect()->route('ventas.index')->with('success', 'Venta actualizada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('ventas.index')->with('error', 'Error al actualizar la venta: ' . $e->getMessage());
+            return redirect()->route('ventas.index')->with('error', 'Error al actualizar la venta');
         }
     }
 
@@ -125,7 +130,7 @@ class VentaController extends Controller implements HasMiddleware
             $venta->delete();
             return redirect()->route('ventas.index')->with('success', 'Venta eliminada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('ventas.index')->with('error', 'Error al eliminar la venta: ' . $e->getMessage());
+            return redirect()->route('ventas.index')->with('error', 'Error al eliminar la venta');
         }
     }
 }

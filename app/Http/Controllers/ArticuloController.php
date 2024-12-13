@@ -84,7 +84,7 @@ class ArticuloController extends Controller implements HasMiddleware
             $articulo->save();
             return redirect()->route('articulos.index')->with('success', 'Artículo creado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('articulos.index')->with('error', 'Error al crear el artículo: ' . $e->getMessage());
+            return redirect()->route('articulos.index')->with('error', 'Error al crear el artículo');
         }
     }
 
@@ -129,7 +129,7 @@ class ArticuloController extends Controller implements HasMiddleware
             $articulo->save();
             return redirect()->route('articulos.index')->with('success', 'Artículo actualizado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('articulos.index')->with('error', 'Error al actualizar el artículo: ' . $e->getMessage());
+            return redirect()->route('articulos.index')->with('error', 'Error al actualizar el artículo');
         }
     }
 
@@ -143,7 +143,7 @@ class ArticuloController extends Controller implements HasMiddleware
             $articulo->delete();
             return redirect()->route('articulos.index')->with('success', 'Artículo eliminado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('articulos.index')->with('error', 'Error al eliminar el artículo: ' . $e->getMessage());
+            return redirect()->route('articulos.index')->with('error', 'Error al eliminar el artículo');
         }
     }
 }

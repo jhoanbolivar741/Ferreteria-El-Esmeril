@@ -61,7 +61,7 @@ class ClienteController extends Controller implements HasMiddleware
             Cliente::create($request->all());
             return redirect()->route('clientes.index')->with('success', 'Cliente creado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('clientes.index')->with('error', 'Error al crear el cliente: ' . $e->getMessage());
+            return redirect()->route('clientes.index')->with('error', 'Error al crear el cliente');
         }
     }
 
@@ -94,7 +94,7 @@ class ClienteController extends Controller implements HasMiddleware
             $cliente->update($request->all());
             return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('clientes.index')->with('error', 'Error al actualizar el cliente: ' . $e->getMessage());
+            return redirect()->route('clientes.index')->with('error', 'Error al actualizar el cliente');
         }
     }
 
@@ -108,7 +108,7 @@ class ClienteController extends Controller implements HasMiddleware
             $cliente->delete();
             return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('clientes.index')->with('error', 'Error al eliminar el cliente: ' . $e->getMessage());
+            return redirect()->route('clientes.index')->with('error', 'Error al eliminar el cliente');
         }
     }
 }

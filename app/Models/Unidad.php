@@ -11,6 +11,6 @@ class Unidad extends Model
 
     public function relArticulo()
     {
-        return $this->hasMany(Articulo::class);
+        return $this->hasMany(Articulo::class, 'unidad_id');
     }
 }

@@ -35,11 +35,6 @@
                             {{ __('Ventas') }}
                         </x-nav-link>
                     @endcan
-                    @can('detalles.index')
-                        <x-nav-link :href="route('detalles.index')" :active="request()->routeIs('detalles.index')">
-                            {{ __('Detalles') }}
-                        </x-nav-link>
-                    @endcan
                 </div>
             </div>
 
@@ -113,11 +108,6 @@
             @can('ventas.index')
                 <x-responsive-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
                     {{ __('Ventas') }}
-                </x-responsive-nav-link>
-            @endcan
-            @can('detalles.index')
-                <x-responsive-nav-link :href="route('detalles.index')" :active="request()->routeIs('detalles.index')">
-                    {{ __('Detalles') }}
                 </x-responsive-nav-link>
             @endcan
         </div>
