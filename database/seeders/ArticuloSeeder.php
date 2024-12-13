@@ -37,7 +37,7 @@ class ArticuloSeeder extends Seeder
         Articulo::create([
             'descripcion' => 'excavadora',
             'cantidad' => 40,
-            'precio_unitario' => 400,
+            'precio_unitario' => 4000,
             'foto' => 'excavadora.jpg',
             'unidad_id' => 4,
         ]);
