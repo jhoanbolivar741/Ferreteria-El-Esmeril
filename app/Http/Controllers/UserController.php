@@ -58,7 +58,7 @@ class UserController extends Controller implements HasMiddleware
             $user->assignRole($request->input('role'));
             return redirect()->route('users.index')->with('success', 'Usuario creado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('users.index')->with('error', 'Error al crear el usuario: ' . $e->getMessage());
+            return redirect()->route('users.index')->with('error', 'Error al crear el usuario');
         }
     }
 
@@ -93,7 +93,7 @@ class UserController extends Controller implements HasMiddleware
             $user->syncRoles($request->input('role'));
             return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('users.index')->with('error', 'Error al actualizar el usuario: ' . $e->getMessage());
+            return redirect()->route('users.index')->with('error', 'Error al actualizar el usuario');
         }
     }
 
@@ -107,7 +107,7 @@ class UserController extends Controller implements HasMiddleware
             $user->delete();
             return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('users.index')->with('error', 'Error al eliminar el usuario: ' . $e->getMessage());
+            return redirect()->route('users.index')->with('error', 'Error al eliminar el usuario');
         }
     }
 }

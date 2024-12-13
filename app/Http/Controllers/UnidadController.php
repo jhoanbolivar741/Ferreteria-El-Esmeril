@@ -59,7 +59,7 @@ class UnidadController extends Controller implements HasMiddleware
             Unidad::create($request->all());
             return redirect()->route('unidades.index')->with('success', 'Unidad creada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('unidades.index')->with('error', 'Error al crear la unidad: ' . $e->getMessage());
+            return redirect()->route('unidades.index')->with('error', 'Error al crear la unidad');
         }
     }
 
@@ -92,7 +92,7 @@ class UnidadController extends Controller implements HasMiddleware
             $unidad->update($request->all());
             return redirect()->route('unidades.index')->with('success', 'Unidad actualizada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('unidades.index')->with('error', 'Error al actualizar la unidad: ' . $e->getMessage());
+            return redirect()->route('unidades.index')->with('error', 'Error al actualizar la unidad');
         }
     }
 
@@ -106,7 +106,7 @@ class UnidadController extends Controller implements HasMiddleware
             $unidad->delete();
             return redirect()->route('unidades.index')->with('success', 'Unidad eliminada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('unidades.index')->with('error', 'Error al eliminar la unidad: ' . $e->getMessage());
+            return redirect()->route('unidades.index')->with('error', 'Error al eliminar la unidad');
         }
     }
 }
