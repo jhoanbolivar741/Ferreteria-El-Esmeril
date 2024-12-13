@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="flex flex-col items-center justify-center mt-10">
+    <div class=" flex flex-col items-center justify-center mt-10">
         <div
-            class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+            class="w-full max-w-sm p-4 bg-sky-100 border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-sky-500 dark:border-gray-700">
             <form class="space-y-6" action="{{route('clientes.store')}}" method="POST">
-                <h5 class="text-xl font-medium text-gray-900 dark:text-white">Crear Cliente</h5>
+                <h5 class="text-4xl font-medium text-gray-900 dark:text-white">Crear Cliente</h5>
                 @csrf
                 @if ($errors->any())
                     <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
@@ -26,14 +26,14 @@
                 @endif
                 <div>
                     <label for="razon"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Razón Social</label>
+                        class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Razón Social</label>
                     <input type="text" name="razon" id="razon" value="{{old('razon')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="Test Cliente" />
                 </div>
                 <div>
                     <label for="nit"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIT</label>
+                        class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">NIT</label>
                     <input type="number" name="nit" id="nit" value="{{old('nit')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="10" />
