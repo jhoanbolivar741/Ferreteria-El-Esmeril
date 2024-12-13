@@ -54,7 +54,7 @@ class RoleController extends Controller implements HasMiddleware
             $role->syncPermissions($request->input('permissions'));
             return redirect()->route('roles.index')->with('success', 'Rol creado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('roles.index')->with('error', 'Error al crear el rol: ' . $e->getMessage());
+            return redirect()->route('roles.index')->with('error', 'Error al crear el rol');
         }
     }
 
@@ -89,7 +89,7 @@ class RoleController extends Controller implements HasMiddleware
             $role->syncPermissions($request->input('permissions'));
             return redirect()->route('roles.index')->with('success', 'Rol actualizado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('roles.index')->with('error', 'Error al actualizar el rol: ' . $e->getMessage());
+            return redirect()->route('roles.index')->with('error', 'Error al actualizar el rol');
         }
     }
 
@@ -103,7 +103,7 @@ class RoleController extends Controller implements HasMiddleware
             $role->delete();
             return redirect()->route('roles.index')->with('success', 'Rol eliminado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('roles.index')->with('error', 'Error al eliminar el rol: ' . $e->getMessage());
+            return redirect()->route('roles.index')->with('error', 'Error al eliminar el rol');
         }
     }
 }

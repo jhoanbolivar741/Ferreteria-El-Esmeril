@@ -76,7 +76,7 @@ class VentaController extends Controller implements HasMiddleware
             Venta::create($request->all());
             return redirect()->route('ventas.index')->with('success', 'Venta creada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('ventas.index')->with('error', 'Error al crear la venta: ' . $e->getMessage());
+            return redirect()->route('ventas.index')->with('error', 'Error al crear la venta');
         }
     }
 
@@ -111,7 +111,7 @@ class VentaController extends Controller implements HasMiddleware
             $venta->update($request->all());
             return redirect()->route('ventas.index')->with('success', 'Venta actualizada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('ventas.index')->with('error', 'Error al actualizar la venta: ' . $e->getMessage());
+            return redirect()->route('ventas.index')->with('error', 'Error al actualizar la venta');
         }
     }
 
@@ -125,7 +125,7 @@ class VentaController extends Controller implements HasMiddleware
             $venta->delete();
             return redirect()->route('ventas.index')->with('success', 'Venta eliminada correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('ventas.index')->with('error', 'Error al eliminar la venta: ' . $e->getMessage());
+            return redirect()->route('ventas.index')->with('error', 'Error al eliminar la venta');
         }
     }
 }

@@ -27,10 +27,10 @@
                             Fecha
                         </th>
                         <th scope="col" class="bg-teal-300 dark:bg-teal-600 px-6 py-3">
-                            Cliente ID
+                            Cliente
                         </th>
                         <th scope="col" class="bg-teal-300 dark:bg-teal-600 px-6 py-3">
-                            User ID
+                            User
                         </th>
                         <th scope="col" class="bg-teal-300 dark:bg-teal-600 pr-20 py-2 text-right">
                             <a href="{{route('ventas.create')}}"
@@ -49,10 +49,10 @@
                                 {{$venta->fecha}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$venta->cliente_id}}
+                                {{$venta->relCliente->razon}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$venta->user_id}}
+                                {{$venta->relUser->name}}
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{route('ventas.edit', $venta)}}"

@@ -57,7 +57,7 @@ class DetalleController extends Controller implements HasMiddleware
             Detalle::create($request->all());
             return redirect()->route('detalles.index')->with('success', 'Detalle creado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('detalles.index')->with('error', 'Error al crear el detalle: ' . $e->getMessage());
+            return redirect()->route('detalles.index')->with('error', 'Error al crear el detalle');
         }
     }
 
@@ -92,7 +92,7 @@ class DetalleController extends Controller implements HasMiddleware
             $detalle->update($request->all());
             return redirect()->route('detalles.index')->with('success', 'Detalle actualizado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('detalles.index')->with('error', 'Error al actualizar el detalle: ' . $e->getMessage());
+            return redirect()->route('detalles.index')->with('error', 'Error al actualizar el detalle');
         }
     }
 
@@ -106,7 +106,7 @@ class DetalleController extends Controller implements HasMiddleware
             $detalle->delete();
             return redirect()->route('detalles.index')->with('success', 'Detalle eliminado correctamente');
         } catch (\Exception $e) {
-            return redirect()->route('detalles.index')->with('error', 'Error al eliminar el detalle: ' . $e->getMessage());
+            return redirect()->route('detalles.index')->with('error', 'Error al eliminar el detalle');
         }
     }
 }
