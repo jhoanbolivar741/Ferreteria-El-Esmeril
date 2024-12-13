@@ -37,18 +37,11 @@
                 <div>
                     <label for="cliente_id"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cliente</label>
-                    <input type="number" name="cliente_id" id="cliente_id"
-                        value="{{old('cliente_id',$venta->cliente_id)}}"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    </input>
-                </div>
-                <div>
-                    <label for="user_id"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Usuario</label>
-                    <input type="number" name="user_id" id="user_id"
-                        value="{{old('user_id',$venta->user_id)}}"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="100" />
+                    <select name="cliente_id" id="cliente_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        @foreach ($clientes as $cliente)
+                            <option value="{{$cliente->id}}" {{old('cliente_id', $venta->cliente_id) == $cliente->id ? 'selected' : ''}}>{{$cliente->razon}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="flex items-start gap-4">
                     <a href="{{route('ventas.index')}}"

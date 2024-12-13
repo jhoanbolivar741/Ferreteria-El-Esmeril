@@ -24,7 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('/clientes', ClienteController::class);
     Route::resource('/articulos', ArticuloController::class);
     Route::resource('/ventas', VentaController::class);
-    Route::resource('/detalles', DetalleController::class);
+
+    Route::prefix('ventas/{venta}')->group(function () {
+        Route::resource('detalles', DetalleController::class)->except(['show']);
+    });
 });
 
 
