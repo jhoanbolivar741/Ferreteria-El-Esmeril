@@ -14,34 +14,19 @@ class UnidadSeeder extends Seeder
     public function run(): void
     {
         Unidad::create([
+            'descripcion' => 'Litro',
+        ]);
+        Unidad::create([
+            'descripcion' => 'Pieza',
+        ]);
+        Unidad::create([
+            'descripcion' => 'Barra',
+        ]);
+        Unidad::create([
             'descripcion' => 'Kilogramo',
         ]);
         Unidad::create([
-            'descripcion' => 'Cubo',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Pieza',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Pieza',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Paquete',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Caja',
-        ]);
-        Unidad::create([
             'descripcion' => 'Bolsa',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Paquete',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Paquete',
-        ]);
-        Unidad::create([
-            'descripcion' => 'Paquete',
         ]);
     }
 }

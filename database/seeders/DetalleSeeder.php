@@ -14,32 +14,27 @@ class DetalleSeeder extends Seeder
     public function run(): void
     {
         Detalle::create([
-            'cantidad' => 10,
+            'cantidad' => 100,
             'venta_id' => 1,
             'articulo_id' => 1,
         ]);
         Detalle::create([
-            'cantidad' => 20,
+            'cantidad' => 80,
             'venta_id' => 2,
             'articulo_id' => 2,
         ]);
         Detalle::create([
-            'cantidad' => 1,
-            'venta_id' => 2,
-            'articulo_id' => 4,
-        ]);
-        Detalle::create([
-            'cantidad' => 30,
+            'cantidad' => 150,
             'venta_id' => 3,
             'articulo_id' => 3,
         ]);
         Detalle::create([
-            'cantidad' => 40,
+            'cantidad' => 100,
             'venta_id' => 4,
             'articulo_id' => 4,
         ]);
         Detalle::create([
-            'cantidad' => 50,
+            'cantidad' => 100,
             'venta_id' => 5,
             'articulo_id' => 5,
         ]);
@@ -67,6 +62,16 @@ class DetalleSeeder extends Seeder
             'cantidad' => 100,
             'venta_id' => 10,
             'articulo_id' => 10,
+        ]);
+        Detalle::create([
+            'cantidad' => 100,
+            'venta_id' => 10,
+            'articulo_id' => 11,
+        ]);
+        Detalle::create([
+            'cantidad' => 10,
+            'venta_id' => 10,
+            'articulo_id' => 12,
         ]);
     }
 }

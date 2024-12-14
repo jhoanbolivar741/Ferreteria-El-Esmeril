@@ -14,74 +14,95 @@ class ArticuloSeeder extends Seeder
     public function run(): void
     {
         Articulo::create([
-            'descripcion' => 'Cemento',
-            'cantidad' => 10,
-            'precio_unitario' => 100,
-            'foto' => 'cemento.jpg',
+            'descripcion' => 'Aceite',
+            'cantidad' => 100,
+            'precio_unitario' => 50,
+            'foto' => 'aceite.png',
             'unidad_id' => 1,
         ]);
         Articulo::create([
-            'descripcion' => 'Arena',
-            'cantidad' => 20,
-            'precio_unitario' => 200,
-            'foto' => 'arena.jpg',
-            'unidad_id' => 2,
+            'descripcion' => 'Agua Destilada',
+            'cantidad' => 80,
+            'precio_unitario' => 20,
+            'foto' => 'aguadestilada.png',
+            'unidad_id' => 1,
         ]);
         Articulo::create([
-            'descripcion' => 'tubo',
-            'cantidad' => 30,
-            'precio_unitario' => 300,
-            'foto' => 'tubo.jpg',
+            'descripcion' => 'Barra Angular',
+            'cantidad' => 150,
+            'precio_unitario' => 80,
+            'foto' => 'barraangular.png',
             'unidad_id' => 3,
         ]);
         Articulo::create([
-            'descripcion' => 'excavadora',
-            'cantidad' => 40,
-            'precio_unitario' => 4000,
-            'foto' => 'excavadora.jpg',
+            'descripcion' => 'Barra de Cobre',
+            'cantidad' => 100,
+            'precio_unitario' => 40,
+            'foto' => 'barradecobre.png',
+            'unidad_id' => 3,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Barra de Construccion',
+            'cantidad' => 100,
+            'precio_unitario' => 65,
+            'foto' => 'barradeconstruccion.png',
+            'unidad_id' => 3,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Carretilla',
+            'cantidad' => 60,
+            'precio_unitario' => 300,
+            'foto' => 'carretilla.png',
+            'unidad_id' => 2,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Electrolito',
+            'cantidad' => 70,
+            'precio_unitario' => 20,
+            'foto' => 'electrolito.png',
+            'unidad_id' => 1,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Grasa',
+            'cantidad' => 80,
+            'precio_unitario' => 25,
+            'foto' => 'grasa.png',
             'unidad_id' => 4,
         ]);
         Articulo::create([
-            'descripcion' => 'Alambre',
-            'cantidad' => 50,
-            'precio_unitario' => 500,
-            'foto' => 'alambre.jpg',
+            'descripcion' => 'Grasa Azul',
+            'cantidad' => 90,
+            'precio_unitario' => 35,
+            'foto' => 'grasaazul.png',
+            'unidad_id' => 4,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Martillo',
+            'cantidad' => 100,
+            'precio_unitario' => 45,
+            'foto' => 'martillo.png',
+            'unidad_id' => 2,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Taladro',
+            'cantidad' => 110,
+            'precio_unitario' => 215,
+            'foto' => 'taladro.png',
+            'unidad_id' => 2,
+        ]);
+        Articulo::create([
+            'descripcion' => 'Cemento',
+            'cantidad' => 120,
+            'precio_unitario' => 48,
+            'foto' => 'cemento.png',
             'unidad_id' => 5,
         ]);
         Articulo::create([
-            'descripcion' => 'Cinta Metrica',
-            'cantidad' => 60,
-            'precio_unitario' => 600,
-            'foto' => 'cinta_metrica.jpg',
-            'unidad_id' => 6,
-        ]);
-        Articulo::create([
-            'descripcion' => 'Foco',
-            'cantidad' => 70,
-            'precio_unitario' => 700,
-            'foto' => 'foco.jpg',
-            'unidad_id' => 7,
-        ]);
-        Articulo::create([
-            'descripcion' => 'Clavos',
-            'cantidad' => 80,
-            'precio_unitario' => 800,
-            'foto' => 'clavos.jpg',
-            'unidad_id' => 8,
-        ]);
-        Articulo::create([
-            'descripcion' => 'Estacas',
-            'cantidad' => 90,
-            'precio_unitario' => 900,
-            'foto' => 'estacas.jpg',
-            'unidad_id' => 9,
-        ]);
-        Articulo::create([
-            'descripcion' => 'Plancha',
-            'cantidad' => 100,
-            'precio_unitario' => 1000,
-            'foto' => 'plancha.jpg',
-            'unidad_id' => 10,
+            'descripcion' => 'Excavadora',
+            'cantidad' => 120,
+            'precio_unitario' => 35000,
+            'foto' => 'excavadora.png',
+            'unidad_id' => 2,
         ]);
     }
 }
