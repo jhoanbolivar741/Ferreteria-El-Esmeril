@@ -97,7 +97,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <img src="{{asset('fotos/' . $articulo->foto)}}" alt="{{$articulo->descripcion}}"
-                                    class="w-16 h-16">
+                                    class="w-16 h-16 object-contain">
                             </td>
                             <td class="px-6 py-4 text-right">
                                 @can('articulos.edit')
