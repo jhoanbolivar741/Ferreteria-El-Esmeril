@@ -24,9 +24,8 @@ class UserController extends Controller implements HasMiddleware
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => $isUpdate ? 'nullable|string|min:6|confirmed' : 'required|string|min:8|confirmed',
-            'confirm_password' => $isUpdate ? 'nullable|string|min:6|same:password' : 'required|string|min:8|same:password',
+            'email' => $isUpdate ? 'required|string|email|max:255':'required|email|max:255|unique:users,email',
+            'password' => $isUpdate ? 'nullable|string|min:6|confirmed' : 'required|string|min:8'
         ]);
     }
     /**
@@ -123,7 +122,6 @@ class UserController extends Controller implements HasMiddleware
         try {
             $request->validate([
                 'password' => 'required|string|min:6|max:50',
-                'confirm_password' => 'required|string|min:6|same:password',
             ]);
             $user = User::find($id);
             $user->password = $request->password;
