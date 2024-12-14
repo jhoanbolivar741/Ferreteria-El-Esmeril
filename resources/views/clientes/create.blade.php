@@ -29,14 +29,14 @@
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Razón Social</label>
                     <input type="text" name="razon" id="razon" value="{{old('razon')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="Test Cliente" />
+                        placeholder="Razón social" />
                 </div>
                 <div>
                     <label for="nit"
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">NIT</label>
                     <input type="number" name="nit" id="nit" value="{{old('nit')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="10" />
+                        placeholder="NIT" />
                 </div>
                 <div class="flex items-start gap-4">
                     <a href="{{route('clientes.index')}}"

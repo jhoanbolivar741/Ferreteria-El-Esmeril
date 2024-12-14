@@ -32,12 +32,12 @@
                     <input type="text" name="descripcion" id="descripcion"
                         value="{{old('descripcion',$articulo->descripcion)}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="Test Articulo" />
+                        placeholder="Descripción del artículo" />
                 </div>
                 <div>
                     <label for="cantidad"
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Cantidad</label>
-                    <input type="number" name="cantidad" id="cantidad"
+                    <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad"
                         value="{{old('cantidad',$articulo->cantidad)}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                     </input>
@@ -48,7 +48,7 @@
                     <input type="number" name="precio_unitario" id="precio_unitario"
                         value="{{old('precio_unitario',$articulo->precio_unitario)}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="100" />
+                        placeholder="Precio unitario" />
                 </div>
                 <div>
                     <label for="unidad_id"

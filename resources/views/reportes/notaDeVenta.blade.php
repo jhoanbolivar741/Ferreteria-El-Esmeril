@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nota de Venta</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,12 +29,12 @@
         .table {
             width: 100%;
             margin-bottom: 20px;
-            border: 1px solid black; /* Línea alrededor de la tabla en negro */
-            border-collapse: collapse; /* Colapsa los bordes */
+            border: 1px solid black;
+            border-collapse: collapse;
         }
 
         .table td, .table th {
-            border: 1px solid black; /* Línea para cada celda en negro */
+            border: 1px solid black;
         }
 
         .total {
@@ -46,6 +45,10 @@
         .footer {
             margin-top: 20px;
             text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
     </style>
 </head>
@@ -55,7 +58,7 @@
     <div class="header">
         <h2>Ferretería "El Esmeril"</h2>
         <h2>Nota de Venta</h2>
-        <p style="text-align: right;">Fecha de Venta: {{ $venta->fecha }}</p>
+        <p style="text-align: right;">Fecha de Venta: {{ \Carbon\Carbon::parse($venta->fecha)->format('d/m/Y') }}</p>
         <p style="text-align: left;">Razón Social: {{ $venta->relCliente->razon}}</p>
         <p style="text-align: left;">NIT: {{ $venta->relCliente->nit }}</p>
     </div>
@@ -99,6 +102,9 @@
         <p>Son: {{ $totalEnLetras }} 00/100 bolivianos</p>
     </div>
 
+    <footer class="footer">
+        <p>Fecha de generación: {{ now()->format('d/m/Y H:i:s') }}</p>
+    </footer>
 </body>
 
 </html>

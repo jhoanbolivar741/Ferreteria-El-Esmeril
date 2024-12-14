@@ -35,6 +35,16 @@
                             {{ __('Ventas') }}
                         </x-nav-link>
                     @endcan
+                    @can('users.index')
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                            {{ __('Usuarios') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('roles.index')
+                        <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
+                            {{ __('Roles') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -108,6 +118,16 @@
             @can('ventas.index')
                 <x-responsive-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.index')">
                     {{ __('Ventas') }}
+                </x-responsive-nav-link>
+            @endcan
+            @can('users.index')
+                <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    {{ __('Usuarios') }}
+                </x-responsive-nav-link>
+            @endcan
+            @can('roles.index')
+                <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
+                    {{ __('Roles') }}
                 </x-responsive-nav-link>
             @endcan
         </div>

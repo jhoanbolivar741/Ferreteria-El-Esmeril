@@ -7,7 +7,7 @@
     <div class="p-8">
         <div class="mb-4 max-w-4xl mx-auto">
             <form action="{{ route('unidades.index') }}" method="GET">
-                <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -19,10 +19,15 @@
                 </div>
             </form>
         </div>
-
+        @if (session('success'))
+            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                role="alert">
+                <span class="font-medium">¡Éxito!</span> {{session('success')}}
+            </div>
+        @endif
         @if (session('error'))
             <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                <span class="font-medium">Error!</span> {{session('error')}}
+                <span class="font-medium">¡Error!</span> {{session('error')}}
             </div>
         @endif
         <div class="relative overflow-x-auto mx-auto shadow-md max-w-4xl sm:rounded-lg">
@@ -33,11 +38,14 @@
                             ID
                         </th>
                         <th scope="col" class="bg-blue-300 dark:bg-blue-500 px-6 py-3">
-                            Descripcion
+                            Descripción
                         </th>
                         <th scope="col" class="bg-blue-300 dark:bg-blue-500 pr-20 py-2 text-right">
-                            <a href="{{route('unidades.create')}}"
-                            <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Nuevo</button>
+                            @can('unidades.create')
+                            <a href="{{route('unidades.create')}}">
+                                <button type="button" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Nuevo</button>
+                            </a>
+                            @endcan
                         </th>
                     </tr>
                 </thead>
@@ -52,14 +60,18 @@
                                 {{$unidad->descripcion}}
                             </td>
                             <td class="px-4 py-2 text-right">
+                                @can('unidades.edit')
                                 <a href="{{route('unidades.edit', $unidad)}}">
                                     <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Editar</button> 
                                 </a>
+                                @endcan
+                                @can('unidades.delete')
                                 <form action="{{route('unidades.destroy', $unidad)}}" method="POST" class="inline">
                                     @method('DELETE')     
                                     <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Eliminar</button>     
                                     @csrf
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

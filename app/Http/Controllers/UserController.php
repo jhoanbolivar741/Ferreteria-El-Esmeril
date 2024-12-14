@@ -16,7 +16,7 @@ class UserController extends Controller implements HasMiddleware
         return [
             new Middleware('can:users.index', only: ['index','show']),
             new Middleware('can:users.create', only: ['create','store']),
-            new Middleware('can:users.edit', only: ['edit','update']),
+            new Middleware('can:users.edit', only: ['edit','update','editPassword','updatePassword']),
             new Middleware('can:users.delete', only: ['destroy']),
         ];
     }
@@ -108,6 +108,31 @@ class UserController extends Controller implements HasMiddleware
             return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente');
         } catch (\Exception $e) {
             return redirect()->route('users.index')->with('error', 'Error al eliminar el usuario');
+        }
+    }
+    public function editPassword(string $id)
+    {
+        $user = User::find($id);
+        return view('users.password',[
+            "user"=>$user
+        ]);
+    }
+
+    public function updatePassword(Request $request, string $id)
+    {
+        try {
+            $request->validate([
+                'password' => 'required|string|min:6|max:50',
+                'confirm_password' => 'required|string|min:6|same:password',
+            ]);
+            $user = User::find($id);
+            $user->password = $request->password;
+            $user->save();
+            return redirect()->route('users.index')
+            ->with('success','Contraseña actualizada');
+        } catch (\Exception $e) {
+            return redirect()->route('users.index')
+            ->with('error','Error al actualizar la contraseña');
         }
     }
 }

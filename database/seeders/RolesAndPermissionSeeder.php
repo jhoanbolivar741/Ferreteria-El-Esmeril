@@ -42,6 +42,13 @@ class RolesAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'users.create']);
         Permission::create(['name' => 'users.edit']);
         Permission::create(['name' => 'users.delete']);
+        Permission::create(['name' => 'roles.index']);
+        Permission::create(['name' => 'roles.create']);
+        Permission::create(['name' => 'roles.edit']);
+        Permission::create(['name' => 'roles.delete']);
+        Permission::create(['name' => 'reporte.ventaPorDia']);
+        Permission::create(['name' => 'reporte.inventario']);
+        Permission::create(['name' => 'reporte.notaDeVenta']);
 
         $adminRole->syncPermissions(Permission::all());
         $vendedorRole->syncPermissions([
@@ -49,7 +56,12 @@ class RolesAndPermissionSeeder extends Seeder
             'articulos.index',
             'clientes.index',
             'ventas.index',
+            'ventas.create',
             'detalles.index',
+            'detalles.create',
+            'reporte.ventaPorDia',
+            'reporte.inventario',
+            'reporte.notaDeVenta',
         ]);
 
 

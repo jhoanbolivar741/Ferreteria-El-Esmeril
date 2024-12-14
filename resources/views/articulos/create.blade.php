@@ -30,20 +30,20 @@
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Descripción</label>
                     <input type="text" name="descripcion" id="descripcion" value="{{old('descripcion')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="Test Articulo" />
+                        placeholder="Descripción del artículo" />
                 </div>
                 <div>
                     <label for="cantidad"
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Cantidad</label>
                     <input type="number" name="cantidad" id="cantidad" value="{{old('cantidad')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="10" />
+                        placeholder="Cantidad" />
                 </div>
                 <div>
                     <label for="precio_unitario"
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Precio Unitario</label>
                     <input type="number" name="precio_unitario" id="precio_unitario" value="{{old('precio_unitario')}}"
-                        placeholder="10"
+                        placeholder="Precio unitario"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
                 </div>
                 <div>

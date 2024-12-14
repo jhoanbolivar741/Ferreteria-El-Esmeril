@@ -56,7 +56,7 @@
 
     <div class="container mt-5">
         <div class="report-header">
-            <h1>Reporte para la fecha: {{ $fecha }}</h1>
+            <h1>Reporte para la fecha: {{ \Carbon\Carbon::parse($fecha)->format('d/m/Y') }}</h1>
         </div>
 
 
@@ -97,7 +97,7 @@
         </div>
 
         <footer>
-            Fecha actual: {{ \Carbon\Carbon::now()->format('d/m/Y') }}
+            Fecha de generación: {{now()->format('d/m/Y H:i:s') }}
         </footer>
     </div>
 
