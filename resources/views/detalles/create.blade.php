@@ -23,14 +23,14 @@
                             </ul>
                         </div>
                     </div>
-
+                    text-right
                 @endif
                 <div>
                     <label for="cantidad"
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Cantidad</label>
                     <input type="number" name="cantidad" id="cantidad" value="{{old('cantidad')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="10" />
+                        placeholder="Cantidad" />
                 </div>
                 <div>
                     <label for="articulo_id"

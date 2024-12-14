@@ -44,6 +44,7 @@
                         class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Precio Unitario</label>
                     <input type="number" name="precio_unitario" id="precio_unitario" value="{{old('precio_unitario')}}"
                         placeholder="Precio unitario"
+                        step="any"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
                 </div>
                 <div>

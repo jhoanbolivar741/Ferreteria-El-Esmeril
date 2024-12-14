@@ -58,7 +58,7 @@
 
                     <main class="mt-6 flex flex-col items-center justify-center">
                         <img src="logo.webp" alt="Logo" class="rounded-xl ">
-                        <h1 class="text-6xl text-center">Ferreteria El Esperil</h1>
+                        <h1 class="text-6xl text-center">Ferretería El Esmeril</h1>
                     </main>
 
                 </div>

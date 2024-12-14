@@ -1,9 +1,12 @@
 <x-app-layout>
 <x-slot name="header">
-        <h2 class="p-4 bg-red-100 dark:bg-red-500 font-semibold text-3xl text-gray-800 dark:text-gray-200 leading-tight text-center rounded-lg">
-            {{ __('Detalle de Venta nro: '.$ventaId) }}
-        </h2>
-    </x-slot>
+    <h2 class="p-4 bg-red-100 dark:bg-red-500 font-semibold text-3xl text-gray-800 dark:text-gray-200 leading-tight text-center rounded-lg">
+        {{ __('Detalle de Venta nro: '.$ventaId) }}
+    </h2>
+    <div class="text-right mt-4">
+        <a href="{{ route('ventas.index') }}" class="text-white bg-gradient-to-br from-green-600 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Regresar a Ventas</a>
+    </div>
+</x-slot>
     <div class="p-8">
         @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"

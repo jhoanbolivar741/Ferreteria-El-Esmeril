@@ -48,7 +48,9 @@
                     <input type="number" name="precio_unitario" id="precio_unitario"
                         value="{{old('precio_unitario',$articulo->precio_unitario)}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="Precio unitario" />
+                        placeholder="Precio unitario" 
+                        step="any"
+                        />
                 </div>
                 <div>
                     <label for="unidad_id"
