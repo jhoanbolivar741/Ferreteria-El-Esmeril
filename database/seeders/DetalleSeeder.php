@@ -24,6 +24,11 @@ class DetalleSeeder extends Seeder
             'articulo_id' => 2,
         ]);
         Detalle::create([
+            'cantidad' => 1,
+            'venta_id' => 2,
+            'articulo_id' => 4,
+        ]);
+        Detalle::create([
             'cantidad' => 30,
             'venta_id' => 3,
             'articulo_id' => 3,

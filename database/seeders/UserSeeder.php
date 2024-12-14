@@ -14,54 +14,14 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Empresa Minera LOPEZ',
+            'name' => 'Enrique Lopez',
             'email' => 'lopez@gmail.com',
             'password' => '12345678',
-        ]);
+        ])->assignRole('vendedor');
         User::create([
-            'name' => 'Empresa Minera CHOQUE',
+            'name' => 'Luis Choque',
             'email' => 'choque@gmail.com',
             'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Comercial POMPEYA',
-            'email' => 'pompeya@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Casa de Cambio',
-            'email' => 'cambio@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Comercial BNF',
-            'email' => 'bnf@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Empresa Constructora JB',
-            'email' => 'constructora@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Empresa Minera POTOSI',
-            'email' => 'potosi@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Empresa Constructora JAMES',
-            'email' => 'james@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Empresa Minera INTI',
-            'email' => 'inti@gmail.com',
-            'password' => '12345678',
-        ]);
-        User::create([
-            'name' => 'Construcciones JESUS',
-            'email' => 'user@gmail.com',
-            'password' => '12345678',
-        ]);
+        ])->assignRole('vendedor');
     }
 }
